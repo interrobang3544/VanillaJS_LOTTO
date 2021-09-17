@@ -13,6 +13,7 @@ function handleSubmit(event) {
 }
   
 function paintInput(text){
+  userInput.classList.remove('hide');
   form.classList.add('hide');
   userInput.innerText = `${text}개 구매하셨습니다.
   *다시 하시려면 새로고침 해주세요.`

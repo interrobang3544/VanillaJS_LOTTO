@@ -1,10 +1,34 @@
-body {
+html {
+	width: 100%;
+	Height: 100%;
 	text-align: center;
 	font-family: 'Nanum Gothic', sans-serif;
 }
 
-input {
+h1, .form, .user-input {
+	background-color: #242424;
+	color: white;
+}
+
+h1 {
+	padding: 5px;
+	margin: 0px;
+}
+
+.form {
+	height: 32px;
+	padding: 5px;
+}
+
+.user-input {
+	margin: 0px;
+	margin-bottom: 10px;
+	height: 42px;
+}
+
+.form-input {
 	text-align: center;
+	margin: 5px;
 }
 
 .ball {
