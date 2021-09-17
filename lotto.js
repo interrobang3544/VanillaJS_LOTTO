@@ -22,9 +22,9 @@ askForNum();
 
 
 const result = document.getElementById('result');
-var pickedNum = [];
-var bonusNum = [];
-var newDiv = [];
+let pickedNum = [];
+let bonusNum = [];
+let newDiv = [];
 
 function generateBalls(input) {
   for (let i=0; i<input; i++){
@@ -33,19 +33,19 @@ function generateBalls(input) {
     newDiv[i].id = `result${i}`;
     result.appendChild(newDiv[i]);
   
-    var candidates = Array(45)
+    let candidates = Array(45)
     .fill()
     .map(function (element, index) {
       return index + 1;
     });
     
-    var shuffle = [];
+    let shuffle = [];
     while (candidates.length > 0) {
-      var value = candidates.splice(Math.floor(Math.random() * candidates.length), 1)[0];
+      let value = candidates.splice(Math.floor(Math.random() * candidates.length), 1)[0];
       shuffle.push(value);
     }
-    var bonus = shuffle[shuffle.length - 1];
-    var picked = shuffle
+    let bonus = shuffle[shuffle.length - 1];
+    let picked = shuffle
       .slice(0, 6)
       .sort(function (p, c) {
         return p - c;
@@ -55,14 +55,14 @@ function generateBalls(input) {
     pickedNum[i] = picked;
   
     function painting(number, resultN) {
-      var ball = document.createElement('div');
-      var ballNumber = document.createElement('div');
+      let ball = document.createElement('div');
+      let ballNumber = document.createElement('div');
       
       ball.className = 'ball';
       ballNumber.className = 'num';
       ballNumber.textContent = number;
   
-      var ballColor;
+      let ballColor;
       if (number <= 10) {
         ballColor = 'red';
       } else if (number <= 20) {
@@ -81,7 +81,7 @@ function generateBalls(input) {
     }
   
     function texting(addText, resultN) {
-      var textBonus = document.createElement('div');
+      let textBonus = document.createElement('div');
       textBonus.textContent = addText;
       textBonus.className = 'textBonus';
       resultN.appendChild(textBonus);
@@ -90,12 +90,15 @@ function generateBalls(input) {
     for (let j = 0; j < picked.length; j++) {
       setTimeout(() => {
         painting(pickedNum[i][j], newDiv[i]);
-      }, (j + 1) * 100);
+      }, i*1000 + (j + 1) * 100);
     }
   
     setTimeout(() => {
       texting('Bonus!', newDiv[i]);
+      }, i*1000 + 800);
+
+    setTimeout(() => {
       painting(bonusNum[i], newDiv[i]);
-    }, 900);
+    }, i*1000 + 900);
   }  
 }
