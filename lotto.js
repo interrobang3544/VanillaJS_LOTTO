@@ -24,7 +24,6 @@ askForNum();
 
 const result = document.getElementById('result');
 let pickedNum = [];
-let bonusNum = [];
 let newDiv = [];
 
 function generateBalls(input) {
@@ -45,47 +44,36 @@ function generateBalls(input) {
       let value = candidates.splice(Math.floor(Math.random() * candidates.length), 1)[0];
       shuffle.push(value);
     }
-    let bonus = shuffle[shuffle.length - 1];
+
     let picked = shuffle
       .slice(0, 6)
       .sort(function (p, c) {
         return p - c;
       });
   
-    bonusNum[i] = bonus;
     pickedNum[i] = picked;
   
     function painting(number, resultN) {
       let ball = document.createElement('div');
-      let ballNumber = document.createElement('div');
-      
+     
       ball.className = 'ball';
-      ballNumber.className = 'num';
-      ballNumber.textContent = number;
+      ball.textContent = number;
   
       let ballColor;
       if (number <= 10) {
-        ballColor = 'red';
+        ballColor = 'rgb(251,196,0)';
       } else if (number <= 20) {
-        ballColor = 'orange';
+        ballColor = 'rgb(105,200,242)';
       } else if (number <= 30) {
-        ballColor = 'yellow';
+        ballColor = 'rgb(255,121,121)';
       } else if (number <= 40) {
-        ballColor = 'blue';
+        ballColor = 'rgb(164,164,164)';
       } else {
-        ballColor = 'green';
+        ballColor = 'rgb(176,216,64)';
       }
       ball.style.background = ballColor;
       
       resultN.appendChild(ball);
-      ball.appendChild(ballNumber);
-    }
-  
-    function texting(addText, resultN) {
-      let textBonus = document.createElement('div');
-      textBonus.textContent = addText;
-      textBonus.className = 'textBonus';
-      resultN.appendChild(textBonus);
     }
     
     for (let j = 0; j < picked.length; j++) {
@@ -93,13 +81,5 @@ function generateBalls(input) {
         painting(pickedNum[i][j], newDiv[i]);
       }, i*1000 + (j + 1) * 100);
     }
-  
-    setTimeout(() => {
-      texting('Bonus!', newDiv[i]);
-      }, i*1000 + 800);
-
-    setTimeout(() => {
-      painting(bonusNum[i], newDiv[i]);
-    }, i*1000 + 900);
   }  
 }

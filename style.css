@@ -2,7 +2,7 @@ html {
 	width: 100%;
 	Height: 100%;
 	text-align: center;
-	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'Noto Sans KR','맑은 고딕','Malgun Gothic','돋움', Dotum, sans-serif;
 }
 
 h1, .form, .user-input {
@@ -25,7 +25,7 @@ h1 {
 
 .user-input {
 	margin: 0px;
-	margin-bottom: 10px;
+	margin-bottom: 20px;
 	padding-bottom: 5px;
 	height: 42px;
 }
@@ -37,37 +37,18 @@ h1 {
 
 .ball {
 	display: inline-block;
-	width: 40px;
-	height: 40px;
-	line-height: 40px;
-	margin: 10px;
-	border-radius: 20px;
-	box-shadow: 0 4px 6px rgba(50, 50, 93, 0.2);
-}
-
-.num {
-	display: inline-block;
-	width: 20px;
-	height: 20px;
-	margin: 0px;
 	text-align: center;
-	vertical-align: center;
-	line-height: 20px;
-	font-size: 12px;
-	font-weight: 1000;
-	border-radius: 4px;
-	color: yellow;
-	background-color: rgba(0, 0, 0, 1);
-}
-
-.textBonus {
-	display: inline-block;
+  vertical-align: middle;
 	width: 60px;
-	height: 40px;
-	line-height: 40px;
-	margin: 10px;
-	margin-left: 30px;
-	text-align: center;
+	height: 60px;
+	line-height: 56px;
+	margin-left: 20px;
+	margin-bottom: 10px;
+	border-radius: 100%;
+	font-size: 28px;
+	font-weight: 500;
+	color: rgb(255 255 255);
+	text-shadow: 0px 0px 3px rgb(73 57 0 / 80%);
 }
 
 .hide {
